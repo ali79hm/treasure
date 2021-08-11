@@ -8,7 +8,7 @@ in some distributions like Arch or CentOS, there is no "source list". The name i
 ## What is repository?
 Linux repository is a storage location that contains source packages which organized in a special directory. Each repository is a set of software hosted on a remote server and intended to be used for installing and updating software packages. "package managers" can do this "installing and updating" part.
 
-## Access to source list and write them
+## Access to source lists and write them
 
 * Debian bases (debian, ubuntu, mint,...) :
 	
@@ -25,6 +25,7 @@ Linux repository is a storage location that contains source packages which organ
 * Arch and Manjaro:
 
 	In this distributions, the package manager is **Pacman** and We have "mirror" instead of "source".
+	
 	You can access to this mirrors in:
 	```bash
 	/etc/pacman.d/mirrorlist
@@ -42,6 +43,7 @@ Linux repository is a storage location that contains source packages which organ
 * Gentoo:
 
 	In this distribution, the package manager is **Portage**.
+	
 	find repository lists in:
 	```bash
 	/etc/portage/repos.conf	
@@ -51,6 +53,7 @@ Linux repository is a storage location that contains source packages which organ
 * CentOS:
 	
 	**Yum** is the package manager.
+	
 	Edit lists like `Centos-Base.repo` that contains main sources in:
 	```bash
 	/etc/yum.repos.d/
