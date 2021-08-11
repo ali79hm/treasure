@@ -13,12 +13,13 @@ Linux repository is a storage location that contains source packages which organ
 * Debian bases (debian, ubuntu, mint,...) :
 	
 	In this distributions, the package manager is **Apt**.
+	
 	[debian](https://wiki.debian.org/SourcesList) says:
 		The main Apt sources configuration file is at `/etc/apt/sources.list`. You can edit this files (as root) using your favorite text editor. To add custom sources, creating separate files under `/etc/apt/sources.list.d/` is preferred. official repositories for example:
-		```bash
-		/etc/apt/sources.list.d/official-package-repositories.list
-		```
-		Ubuntu and mint and... are the same
+	```bash
+	/etc/apt/sources.list.d/official-package-repositories.list
+	```
+	Ubuntu and mint and... are the same
 
 
 * Arch and Manjaro:
