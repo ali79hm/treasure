@@ -3,7 +3,7 @@ linear algebra Treasure
 
 # Determinant
 
-[Open Determinant Treasure →](algebra/determinant.md)
+[Open Determinant Treasure →](linear_algebra/determinant.md)
 
 
 
