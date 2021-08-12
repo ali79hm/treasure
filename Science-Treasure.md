@@ -1,5 +1,4 @@
 Science Treasure
 ---
-# menu sample
-
-[a link sample](files/test.md)
+# linux
+[open linux Treasure →](files/linux.md)
