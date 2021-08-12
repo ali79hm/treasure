@@ -1,11 +1,7 @@
-math Treasure
+algebra Treasure
 ---
 
-# Algebra
+# Permutation Group
 
-[Open algebra Treasure →](math/algebra/)
+[Open Permutation Group Treasure →](algebra/permutation_group.md)
 
-
-# Linear Algebra
-
-[Open linear algebra Treasure →](math/linear_algebra/)
