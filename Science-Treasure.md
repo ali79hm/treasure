@@ -9,3 +9,5 @@ Science Treasure
 # vim
 [open vim Treasure →](files/vim.md)
 
+# python 
+[open python Treasure →](files/python.md)
