@@ -11,3 +11,6 @@ Science Treasure
 
 # python 
 [open python Treasure →](files/python.md)
+
+# git 
+[open git Treasure →](files/git.md)
