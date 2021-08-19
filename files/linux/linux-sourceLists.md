@@ -74,4 +74,11 @@ Linux repository is a storage location that contains source packages which organ
 You can add or remove repository links in this locations, package manager can see what softwares(packages) are in the source list. So it will have access to change them, install them, update the list or...
 
 ## How do I get the sources and repository link?
-This is done with ** 
+This is done with list source generators:
+
+[Debian Sources List Generator](https://debgen.simplylinux.ch/)
+
+[Ubuntu Sources List Generator](https://repogen.simplylinux.ch/) 
+
+[Arch Pacman Mirrorlist Generator](https://archlinux.org/mirrorlist/)
+
