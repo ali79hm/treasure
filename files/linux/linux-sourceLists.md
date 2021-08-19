@@ -67,3 +67,11 @@ Linux repository is a storage location that contains source packages which organ
 	```bash
 	/etc/yum.repos.d
 	```
+
+
+
+### After that
+You can add or remove repository links in this locations, package manager can see what softwares(packages) are in the source list. So it will have access to change them, install them, update the list or...
+
+## How do I get the sources and repository link?
+This is done with ** 
