@@ -14,3 +14,6 @@ Science Treasure
 
 # git 
 [open git Treasure →](files/git.md)
+
+# physics
+[open physics Treasure →](files/physics.md)
