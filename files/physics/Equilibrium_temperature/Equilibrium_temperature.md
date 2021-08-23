@@ -5,5 +5,5 @@ here we have some heat transfer models:
 
 ### Water and Ice
 
-when you have $m$ grams of water in $\theta_w\$ and  $n$ grams of ice in $\theta_i\$ and mix them in a insulated space
+when you have ![formula](https://latex.codecogs.com/svg.image?m) grams of water in $\theta_w\$ and  $n$ grams of ice in $\theta_i\$ and mix them in a insulated space
 
