@@ -1,5 +1,8 @@
 linux Treasure
 ---
+# linux commands
+
+[open linux coammands Treasure →](linux/linux-commands.md)
 
 # linux bash
 
