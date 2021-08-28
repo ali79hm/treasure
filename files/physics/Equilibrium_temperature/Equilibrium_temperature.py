@@ -15,8 +15,17 @@ second_material_code = input("\nwhat is your second material?\n1.water\n2.ice\n"
 second_material_temperature = input("\nwhat is the temperature(kelvin)?\n")
 second_material_mass = input("\nwhat is the mass(kilogramm)?\n")
 
-if first_material_code == 1 :
+if first_material_code == 1 and second_material_code == 2 :
+
     q_water = first_material_mass * c_list[first_material_code - 1] * (first_material_temperature - 273.15)
-elif first_material_code == 2 :
+    q_ice = second_material_mass * c_list[second_material_code - 1] * (273.15 - second_material_temperature)
+    q_convert = second_material_mass * water_fusion_SLH
+
+elif first_material_code == 2 and second_material_code == 1 :
+
+    q_water = second_material_mass * c_list[second_material_code - 1] * (second_material_temperature - 273.15)
     q_ice = first_material_mass * c_list[first_material_code - 1] * (273.15 - first_material_temperature)
     q_convert = first_material_mass * water_fusion_SLH
+
+elif first_material_code == 1 and second_material_code == 1 :
+    
