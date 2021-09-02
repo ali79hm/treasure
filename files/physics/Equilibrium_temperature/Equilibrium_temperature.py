@@ -1,3 +1,4 @@
+#define elements
 #Specific heat capacity
 c_water = 4.187
 c_ice = 2.220
@@ -6,26 +7,42 @@ c_list = [c_water, c_ice]
 water_vaporization_SLH = 2264.705
 water_fusion_SLH = 334
 
+def heat (m, c, theta):
+    if theta < 273.15:
+        return m * c * (273.15 - theta)
+    else :
+        return m * c * (theta - 273.15)
 
-first_material_code = input("what is your first material?\n1.water\n2.ice\n")
-first_material_temperature = input("\nwhat is the temperature(kelvin)?\n")
-first_material_mass = input("\nwhat is the mass(kilogramm)?\n")
+#get inputs
+material001_code = input("what is your first material?\n1.water\n2.ice\n")
+material001_temp = input("\nwhat is the temperature(kelvin)?\n")
+material001_mass = input("\nwhat is the mass(kilogramm)?\n")
 
-second_material_code = input("\nwhat is your second material?\n1.water\n2.ice\n")
-second_material_temperature = input("\nwhat is the temperature(kelvin)?\n")
-second_material_mass = input("\nwhat is the mass(kilogramm)?\n")
+material002_code = input("\nwhat is your second material?\n1.water\n2.ice\n")
+material002_temp = input("\nwhat is the temperature(kelvin)?\n")
+material002_mass = input("\nwhat is the mass(kilogramm)?\n")
 
-if first_material_code == 1 and second_material_code == 2 :
+#procedural code
+if material001_code == 1 and material002_code == 2 :
 
-    q_water = first_material_mass * c_list[first_material_code - 1] * (first_material_temperature - 273.15)
-    q_ice = second_material_mass * c_list[second_material_code - 1] * (273.15 - second_material_temperature)
-    q_convert = second_material_mass * water_fusion_SLH
+    q_water = heat(material001_mass, c_list[material001_code - 1], material001_temp)
+    q_ice = heat(material002_mass, c_list[material002_code - 1], material002_temp)
+    q_convert = material002_mass * water_fusion_SLH
 
-elif first_material_code == 2 and second_material_code == 1 :
+elif material001_code == 2 and material002_code == 1 :
 
-    q_water = second_material_mass * c_list[second_material_code - 1] * (second_material_temperature - 273.15)
-    q_ice = first_material_mass * c_list[first_material_code - 1] * (273.15 - first_material_temperature)
-    q_convert = first_material_mass * water_fusion_SLH
+    q_water = heat(material002_mass, c_list[material002_code - 1], material002_temp)
+    q_ice = heat(material001_mass, c_list[material001_code - 1], material001_temp)
+    q_convert = material001_mass * water_fusion_SLH
 
-elif first_material_code == 1 and second_material_code == 1 :
-    
+elif material001_code == 1 and material002_code == 1 :
+    if material001_temp < material002_temp :
+
+        heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
+            heat(material002_mass, c_list[material002_code -1], material002_temp)
+
+        equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
+            material002_mass*c_list[material002_code - 1])
+
+elif material001_code == 2 and material002_code == 2 :
+
