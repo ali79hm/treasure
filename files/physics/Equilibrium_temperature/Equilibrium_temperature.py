@@ -13,6 +13,26 @@ def heat (m, c, theta):
     else :
         return m * c * (theta - 273.15)
 
+def converter (q_water, q_ice, q_convert):
+    if q_water > q_ice + q_convert :
+        print ()
+
+    elif q_water == q_ice + q_convert :
+        equ_temp = 0
+        equ_phase = "water"
+    elif q_ice > q_water + q_convert:
+        print ()
+
+    elif q_ice == q_water + q_convert:
+        equ_temp = 0
+        equ_phase = "ice"
+    
+    elif q_water < q_ice + q_convert and q_ice < q_water + q_convert:
+        equ_temp = 0
+        equ_phase =""
+     
+
+
 #get inputs
 material001_code = input("what is your first material?\n1.water\n2.ice\n")
 material001_temp = input("\nwhat is the temperature(kelvin)?\n")
@@ -24,25 +44,27 @@ material002_mass = input("\nwhat is the mass(kilogramm)?\n")
 
 #procedural code
 if material001_code == 1 and material002_code == 2 :
-
     q_water = heat(material001_mass, c_list[material001_code - 1], material001_temp)
     q_ice = heat(material002_mass, c_list[material002_code - 1], material002_temp)
     q_convert = material002_mass * water_fusion_SLH
+    
 
 elif material001_code == 2 and material002_code == 1 :
-
     q_water = heat(material002_mass, c_list[material002_code - 1], material002_temp)
     q_ice = heat(material001_mass, c_list[material001_code - 1], material001_temp)
     q_convert = material001_mass * water_fusion_SLH
 
 elif material001_code == 1 and material002_code == 1 :
-    if material001_temp < material002_temp :
+    heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
+        heat(material002_mass, c_list[material002_code -1], material002_temp)
 
-        heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
-            heat(material002_mass, c_list[material002_code -1], material002_temp)
-
-        equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
-            material002_mass*c_list[material002_code - 1])
+    equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
+        material002_mass*c_list[material002_code - 1])
 
 elif material001_code == 2 and material002_code == 2 :
+    heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
+        heat(material002_mass, c_list[material002_code -1], material002_temp)
+
+    equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
+        material002_mass*c_list[material002_code - 1])
 
