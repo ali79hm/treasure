@@ -10,7 +10,7 @@ when you have ![formula](<img src="https://latex.codecogs.com/svg.image?\inline&
 ```math
 2x = x^{3x +4}
 ```
-```math
+this is inline integral test```math
 \int_{a}^{b}
-```
+                            ```and finish test
 
