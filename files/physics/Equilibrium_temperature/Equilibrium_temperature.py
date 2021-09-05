@@ -13,15 +13,20 @@ def heat (m, c, theta):
     else :
         return m * c * (theta - 273.15)
 
-def converter (q_water, q_ice, q_convert):
+def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water):
     if q_water > q_ice + q_convert :
-        print ()
+        re_heat = q_water - (q_ice + q_convert)
+        equ_temp = (re_heat/(m_ice * c_water)) + 273.15
+        equ_phase = "water"
 
     elif q_water == q_ice + q_convert :
         equ_temp = 0
         equ_phase = "water"
+
     elif q_ice > q_water + q_convert:
-        print ()
+        re_heat = q_ice - (q_water + q_convert)
+        equ_temp = 273.15 - (re_heat/(m_water * c_ice))
+        equ_phase = "water"
 
     elif q_ice == q_water + q_convert:
         equ_temp = 0
@@ -29,7 +34,7 @@ def converter (q_water, q_ice, q_convert):
     
     elif q_water < q_ice + q_convert and q_ice < q_water + q_convert:
         equ_temp = 0
-        equ_phase =""
+        equ_phase ="mixture ice and water"
      
 
 
