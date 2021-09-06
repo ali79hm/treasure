@@ -5,6 +5,6 @@ here we have some heat transfer models:
 
 ### Water and Ice
 
-[Python code](Equilibrium_temperature/Equilibrium_temperature.py)
+[Python code](Equilibrium_temperature.py)
 
 
