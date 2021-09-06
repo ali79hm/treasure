@@ -5,14 +5,6 @@ here we have some heat transfer models:
 
 ### Water and Ice
 
-       
+[Python code](Equilibrium_temperature/Equilibrium_temperature.py)
 
-```math
-2x = x^{3x +4}
-```
-this is inline integral test
-```math
-\int_{a}^{b}
- ```
- and finish test
 
