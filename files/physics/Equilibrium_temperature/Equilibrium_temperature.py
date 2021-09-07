@@ -7,13 +7,16 @@ c_list = [c_water, c_ice]
 water_vaporization_SLH = 2264.705
 water_fusion_SLH = 334
 
+equ_temp = None
+equ_phase = None
+
 def heat (m, c, theta):
     if theta < 273.15:
         return m * c * (273.15 - theta)
     else :
         return m * c * (theta - 273.15)
 
-def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water):
+def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water, equ_temp, equ_phase):
     if q_water > q_ice + q_convert :
         re_heat = q_water - (q_ice + q_convert)
         equ_temp = (re_heat/(m_ice * c_water)) + 273.15
@@ -22,6 +25,7 @@ def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water):
     elif q_water == q_ice + q_convert :
         equ_temp = 0
         equ_phase = "water"
+        return equ_temp, equ_phase
 
     elif q_ice > q_water + q_convert:
         re_heat = q_ice - (q_water + q_convert)
@@ -35,7 +39,9 @@ def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water):
     elif q_water < q_ice + q_convert and q_ice < q_water + q_convert:
         equ_temp = 0
         equ_phase ="mixture ice and water"
-     
+    else:
+        equ_temp = 0
+        equ_phase =0
 
 
 #get inputs
@@ -48,17 +54,19 @@ material002_temp = input("\nwhat is the temperature(kelvin)?\n")
 material002_mass = input("\nwhat is the mass(kilogramm)?\n")
 
 #procedural code
+if material001_code == 2 and material002_code == 1 :
+    material001_code, material002_code = material002_code, material001_code
+    material001_mass, material002_mass = material002_mass, material001_mass
+    material001_temp, material002_temp = material002_temp, material001_temp
+
 if material001_code == 1 and material002_code == 2 :
     q_water = heat(material001_mass, c_list[material001_code - 1], material001_temp)
     q_ice = heat(material002_mass, c_list[material002_code - 1], material002_temp)
     q_convert = material002_mass * water_fusion_SLH
     
-
-elif material001_code == 2 and material002_code == 1 :
-    q_water = heat(material002_mass, c_list[material002_code - 1], material002_temp)
-    q_ice = heat(material001_mass, c_list[material001_code - 1], material001_temp)
-    q_convert = material001_mass * water_fusion_SLH
-
+    converter(q_water, q_ice, q_convert, material002_mass, material001_mass, +\
+        c_list[material002_code - 1], c_list[material001_code - 1], equ_temp, equ_phase)
+    
 elif material001_code == 1 and material002_code == 1 :
     heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
         heat(material002_mass, c_list[material002_code -1], material002_temp)
@@ -73,3 +81,4 @@ elif material001_code == 2 and material002_code == 2 :
     equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
         material002_mass*c_list[material002_code - 1])
 
+print(equ_phase, ":", equ_temp)
