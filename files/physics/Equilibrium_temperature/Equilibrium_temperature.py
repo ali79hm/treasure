@@ -45,13 +45,13 @@ def converter (q_water, q_ice, q_convert, m_ice, m_water, c_ice, c_water, equ_te
 
 
 #get inputs
-material001_code = input("what is your first material?\n1.water\n2.ice\n")
-material001_temp = input("\nwhat is the temperature(kelvin)?\n")
-material001_mass = input("\nwhat is the mass(kilogramm)?\n")
+material001_code = int(input("what is your first material?\n1.water\n2.ice\n"))
+material001_temp = float(input("\nwhat is the temperature(kelvin)?\n"))
+material001_mass = float(input("\nwhat is the mass(kilogramm)?\n"))
 
-material002_code = input("\nwhat is your second material?\n1.water\n2.ice\n")
-material002_temp = input("\nwhat is the temperature(kelvin)?\n")
-material002_mass = input("\nwhat is the mass(kilogramm)?\n")
+material002_code = int(input("\nwhat is your second material?\n1.water\n2.ice\n"))
+material002_temp = float(input("\nwhat is the temperature(kelvin)?\n"))
+material002_mass = float(input("\nwhat is the mass(kilogramm)?\n"))
 
 #procedural code
 if material001_code == 2 and material002_code == 1 :
@@ -66,6 +66,8 @@ if material001_code == 1 and material002_code == 2 :
     
     converter(q_water, q_ice, q_convert, material002_mass, material001_mass, +\
         c_list[material002_code - 1], c_list[material001_code - 1], equ_temp, equ_phase)
+        
+    print (1)
     
 elif material001_code == 1 and material002_code == 1 :
     heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
@@ -73,12 +75,15 @@ elif material001_code == 1 and material002_code == 1 :
 
     equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
         material002_mass*c_list[material002_code - 1])
-
+    print(2)
 elif material001_code == 2 and material002_code == 2 :
     heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
         heat(material002_mass, c_list[material002_code -1], material002_temp)
 
     equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
         material002_mass*c_list[material002_code - 1])
+    print(3)
+else:
+    print(4)
 
 print(equ_phase, ":", equ_temp)
