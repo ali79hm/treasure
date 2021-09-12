@@ -66,24 +66,24 @@ if material001_code == 1 and material002_code == 2 :
     
     converter(q_water, q_ice, q_convert, material002_mass, material001_mass, +\
         c_list[material002_code - 1], c_list[material001_code - 1], equ_temp, equ_phase)
-        
-    print (1)
-    
+            
 elif material001_code == 1 and material002_code == 1 :
-    heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
-        heat(material002_mass, c_list[material002_code -1], material002_temp)
+    heats = material001_mass * c_list[material001_code - 1] * material001_temp +\
+        material002_mass * c_list[material002_code -1] * material002_temp
 
     equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
         material002_mass*c_list[material002_code - 1])
-    print(2)
+    equ_phase = "water"
+
 elif material001_code == 2 and material002_code == 2 :
-    heats = heat(material001_mass, c_list[material001_code - 1], material001_temp) +\
-        heat(material002_mass, c_list[material002_code -1], material002_temp)
+    heats = material001_mass * c_list[material001_code - 1] * material001_temp +\
+        material002_mass * c_list[material002_code -1] * material002_temp
 
     equ_temp = heats/(material001_mass*c_list[material001_code - 1] +\
         material002_mass*c_list[material002_code - 1])
-    print(3)
+    equ_phase = "ice"
+
 else:
     print(4)
 
-print(equ_phase, ":", equ_temp)
+print("the final phase is \"",equ_phase, "\", and the final temperature is \"", equ_temp,"\"")
