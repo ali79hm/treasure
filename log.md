@@ -41,3 +41,17 @@ message:
     	I'm writing this source in 4 times.  
 
 ---
+---
+time:
+	1400-06-21
+
+author:
+	mahdi ghadami
+
+link:
+	[Equilibrium Temperature Article and code](files/physics/Equilibrium_temperature/)
+    
+message:
+    	write log when the Article is not complete and code have bugs. 
+
+---
