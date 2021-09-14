@@ -1,35 +1,7 @@
 #count transpose
-def permutation_exist(array):
-    for a in range(len(array)-2 , -1 , -1):
-        print("\"",array[a],"\"")
-        if array[a] < array[a + 1]:
-            b = len(array) - 1
-            while True:
-                # print('h')
-                if array[b] > array[a]:
-                    array[a], array[b] = array[b], array[a]
-                    c = len(array) - 1
-                    a = a + 1
-                    a = len(array) - 1
-                    while(a < b):
-                        array[a], array[c] = array[c], array[a]
-                        a = a + 1
-                        c = c - 1
-                    return True
-                b = b - 1
-    return False
-
-def permutation(sequence):
-    list_sequence = [int(a) for a in str(sequence)]
-    print(list_sequence)
-    while(permutation_exist(list_sequence)):
-        for j in list_sequence:
-            print(j)
-
-dim_seq = 123
-print(permutation(dim_seq))
-
-
+from itertools import permutations
+l = list(permutations(range(1, 4)))
+print (l)
 # Python Program to find the number of
 # transpositions in a permutation
 N = 1000001
@@ -79,9 +51,8 @@ def noOfTranspositions(P, n) :
     return transpositions
  
 # Driver Code
-permutation = [ 1, 3, 4, 2]
-n = len(permutation)
- 
-print(noOfTranspositions(permutation, n))
+for permutation in l:
+    n = len(permutation)
+    print(noOfTranspositions(permutation, n))
  
 
