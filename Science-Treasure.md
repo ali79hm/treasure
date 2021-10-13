@@ -17,3 +17,7 @@ Science Treasure
 
 # physics
 [open physics Treasure →](files/physics.md)
+
+# SQL
+[open sql Treasure →](files/sql.md)
+
