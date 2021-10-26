@@ -38,11 +38,11 @@ CREATe TABLE tablename
 ```
 ## show all tables
 ```sql
-SHOW TABLES
+SHOW TABLES;
 ```
 ## print a table 
 ```sql
-SHOW column FROM <table_name>;
+SHOW columns FROM <table_name>;
 ```
 or we can use 
 ```sql
@@ -51,4 +51,16 @@ DESC <table_name>;
 ## deleteing tables
 ```sql
 DROP TABLE <table_name>;
+```
+## insert data
+```sql
+INSERT INTO table_name =(column_name,column_name)
+VALUES ('data','data');
+```
+## insert multiple data
+```sql
+INSERT INTO table_name =(column_name,column_name)
+VALUES  ('data1','data1'),
+        ('data2','data2'),
+        ('data3','data3');
 ```
