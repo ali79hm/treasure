@@ -10,7 +10,7 @@ so sql is database language but mySQL is DBSM.
 we have several DBSMs that use sql as language, like postgre SQL,mySQL,oracle,SQlite .
 their diffrence is in speed , security , size , user premitions and ...
 
-# work with Databases
+# manage Databases
 
 ## show all databases
 ```sql
@@ -36,7 +36,9 @@ USE <databases name>;
 SELECT database();
 ```
 
-# work with tables
+--------------------------------------------------
+
+# manage tables
 
 - before making tables you sould be familier with sql data types if you are not! , [click here](https://www.w3schools.com/sql/sql_datatypes.asp)
 ## create a table
@@ -63,19 +65,6 @@ DESC <table_name>;
 ```sql
 DROP TABLE <table_name>;
 ```
-## insert data intp table
-```sql
-INSERT INTO table_name =(column_name,column_name)
-VALUES ('data','data');
-```
-## insert multiple data
-```sql
-INSERT INTO table_name =(column_name,column_name)
-VALUES  ('data1','data1'),
-        ('data2','data2'),
-        ('data3','data3');
-```
-
 ## prevent null columns
 for example we have students table and every student must have a name so name fields cant be empty , what should we do?
 the answer is NOT NULL.
@@ -93,7 +82,6 @@ in above code **column_name1** cant be NULL
 ```sql
 ALTER TABLE table_name MODIFY column_name data_type NOT NULL;
 ```
-
 ## set default value for columns
 
 ### while creating table:
@@ -140,6 +128,34 @@ CREATE TABLE tablename
 ALTER TABLE table_name MODIFY column_name data_type PRIMARY KEY NOT NULL AUTO_INCREMENT;
 ```
 
+--------------------------------------------------
+
+
+# work with data in tables
+
+## insert data intp table
+```sql
+INSERT INTO table_name =(column_name,column_name)
+VALUES ('data','data');
+```
+## insert multiple data
+```sql
+INSERT INTO table_name =(column_name,column_name)
+VALUES  ('data1','data1'),
+        ('data2','data2'),
+        ('data3','data3');
+```
+
+
+
+
+
+## read tables
+
+### read all columns:
+```sql
+SELECT * FROM table_name
+```
 
 # warnings
 ## see warnings
