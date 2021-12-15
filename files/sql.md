@@ -80,6 +80,7 @@ VALUES  ('data1','data1'),
 for example we have students table and every student must have a name so name fields cant be empty , what should we do?
 the answer is NOT NULL.
 we can set a column to NOT NULL to prevent this problems
+### while creating table:
 ```sql
 CREATe TABLE tablename
 (
@@ -88,8 +89,15 @@ CREATe TABLE tablename
 );
 ```
 in above code **column_name1** cant be NULL
+ ### after creating tabel:
+```sql
+ALTER TABLE table_name MODIFY column_name data_type NOT NULL;
+```
 
 ## set default value for columns
+
+### while creating table:
+
 if user doesnt set a value for a column it will set to NULL
 one way to prevent that is setting a default value 
 ```sql
@@ -100,6 +108,37 @@ CREATe TABLE tablename
 );
 ```
 in above code if user doesnt set **column_name1** it will set to **default_value**
+
+ ### after creating tabel:
+```sql
+ALTER TABLE table_name ALTER column_name SET DEFAULT default_value;
+```
+## primary key
+
+we need unique id to destiguish between datas.
+in sql we can set a column to primary key and it will be unique for every row 
+### while creating table:
+```sql
+CREATE TABLE tablename
+(
+    column_name1 data_type NOT NULL,
+    column_name2 data_type,
+    PRIMARY KEY (column_name1)
+);
+```
+it is hard to set primary key manually so we cant make it automatic by using ```AUTO_INCREMENT```
+```sql
+CREATE TABLE tablename
+(
+    column_name1 data_type NOT NULL AUTO_INCREMENT,
+    column_name2 data_type,
+    PRIMARY KEY (column_name1)
+);
+```
+ ### after creating tabel:
+```sql
+ALTER TABLE table_name MODIFY column_name data_type PRIMARY KEY NOT NULL AUTO_INCREMENT;
+```
 
 
 # warnings
