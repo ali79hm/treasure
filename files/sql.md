@@ -89,6 +89,19 @@ CREATe TABLE tablename
 ```
 in above code **column_name1** cant be NULL
 
+## set default value for columns
+if user doesnt set a value for a column it will set to NULL
+one way to prevent that is setting a default value 
+```sql
+CREATe TABLE tablename
+(
+    column_name1 data_type DEFAULT default_value,
+    column_name2 data_type
+);
+```
+in above code if user doesnt set **column_name1** it will set to **default_value**
+
+
 # warnings
 ## see warnings
 ```sql
