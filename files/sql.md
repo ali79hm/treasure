@@ -63,7 +63,7 @@ DESC <table_name>;
 ```sql
 DROP TABLE <table_name>;
 ```
-## insert data
+## insert data intp table
 ```sql
 INSERT INTO table_name =(column_name,column_name)
 VALUES ('data','data');
@@ -74,4 +74,23 @@ INSERT INTO table_name =(column_name,column_name)
 VALUES  ('data1','data1'),
         ('data2','data2'),
         ('data3','data3');
+```
+
+## prevent null columns
+for example we have students table and every student must have a name so name fields cant be empty , what should we do?
+the answer is NOT NULL.
+we can set a column to NOT NULL to prevent this problems
+```sql
+CREATe TABLE tablename
+(
+    column_name1 data_type NOT NULL,
+    column_name2 data_type
+);
+```
+in above code **column_name1** cant be NULL
+
+# warnings
+## see warnings
+```sql
+SHOW WARNINGS;
 ```
