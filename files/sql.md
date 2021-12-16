@@ -156,6 +156,32 @@ VALUES  ('data1','data1'),
 ```sql
 SELECT * FROM table_name
 ```
+### read a column
+```sql
+SELECT column_name FROM table_name
+```
+
+### read multiple columns
+```sql
+SELECT column_name1,column_name2 FROM table_name
+```
+
+### use condition for selecting special rows
+```sql
+SELECT column_name1 FROM table_name WHERE condidion
+```
+here a example from conditions:
+suppose we have two columns: 1.name 2.age
+we want to get name of people who`s age is grather than 18 :
+```SELECT name FROM people WHERE age>18 ```
+
+### using aliases
+we cant show a column with special title
+```sql
+SELECT column_name AS special_name FROM table_name
+```
+
+
 
 # warnings
 ## see warnings
