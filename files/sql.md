@@ -127,29 +127,36 @@ CREATE TABLE tablename
 ```sql
 ALTER TABLE table_name MODIFY column_name data_type PRIMARY KEY NOT NULL AUTO_INCREMENT;
 ```
+## cloning a table
+Step 1: Creating an Empty Table
+First use the following statement to create an empty table based on the definition of original table. It also includes the column attributes and indexes defined in the original table:
+```sql
+CREATE TABLE new_table LIKE original_table;
+```
+
+Step 2: Inserting Data into Table
+Now, use the following statement to populate the empty table with data from original table:
+```sql
+INSERT INTO new_table SELECT * FROM original_table;
+```
+
+
 
 --------------------------------------------------
-
-
 # work with data in tables
-
-## insert data intp table
+## insert data
+### insert data into table
 ```sql
 INSERT INTO table_name =(column_name,column_name)
 VALUES ('data','data');
 ```
-## insert multiple data
+### insert multiple data
 ```sql
 INSERT INTO table_name =(column_name,column_name)
 VALUES  ('data1','data1'),
         ('data2','data2'),
         ('data3','data3');
 ```
-
-
-
-
-
 ## read tables
 
 ### read all columns:
@@ -172,19 +179,77 @@ SELECT column_name1 FROM table_name WHERE condidion
 ```
 here a example from conditions:
 suppose we have two columns: 1.name 2.age
-we want to get name of people who`s age is grather than 18 :
-```SELECT name FROM people WHERE age>18 ```
+we want to get name of people who`s age is grather than 18 :```SELECT name FROM people WHERE age>18 ```
+
+#### select list of special rows
+say that you want to select people with age 20 and 18 you can do this :
+```sql
+SELECT column_name1 FROM table_name WHERE age IN (2,4);
+```
+#### select range of special rows
+say that you want to select people with age 20 and 18 you can do this :
+```sql
+SELECT column_name1 FROM table_name WHERE age BETWEEN 2 AND 4;
+```
 
 ### using aliases
 we cant show a column with special title
 ```sql
-SELECT column_name AS special_name FROM table_name
+SELECT column_name AS special_name FROM table_name;
 ```
+## Update
+```sql
+UPDATE table_name SET <list_of_changes> WHERE <condition>;
+```
+## delete
+```sql
+DELETE FROM table_name WHERE <condition>;
+```
+becuse ther isn`t any undo button you can select data before updating or deleting to make sure that you are targeting what you mean to target
+### clear all table data
+```sql
+DELETE FROM table_name;
+```
+## how to undo table changes
+as i mensioned before there is no way to undo changes that commited 
+but we can do 2 thing when we work with sensetinve data then if we messed up we can undo changes
+### first method
+you can set autocommit off with this command:
+```sql
+SET SESSION autocommit = 0;
+```
+Now you may enter a series of SQL statements that collectively will make up the transaction. At any point, you may undo all of the statements for the transaction by entering the following SQL statements:
+```sql
+ROLLBACK;
+```
+If you don’t want to reverse a transaction and decide to commit the SQL statements executed, enter the following SQL statement:
+```sql
+COMMIT;
+```
+This ends the transaction. Note that some statements are not transactional and may not be rolled back, such as data definition statements CREATE TABLE, CREATE DATABASE, ALTER TABLE, DROP TABLE, and DROP DATABASE, for example. Some of these statements, in fact, implicitly commit the current transaction.
 
+auto commit will turn again after you end session but also you can turn back on autocommit by this command:
+```sql
+SET SESSION autocommit = 1;
+```
+### second method
+you can use this command before your sql statments:
+```sql
+START TRANSACTION;
+```
+Now you may enter a series of SQL statements that collectively will make up the transaction. At any point, you may undo all of the statements for the transaction by entering the following SQL statements:
+```sql
+ROLLBACK;
+```
+If you don’t want to reverse a transaction and decide to commit the SQL statements executed, enter the following SQL statement:
+```sql
+COMMIT;
+```
+This ends the transaction and for new transaction you sould do this methed again . Note that some statements are not transactional and may not be rolled back, such as data definition statements CREATE TABLE, CREATE DATABASE, ALTER TABLE, DROP TABLE, and DROP DATABASE, for example. Some of these statements, in fact, implicitly commit the current 
 
-
+--------------------------------------------------
 # warnings
-## see warnings
+## see warning
 ```sql
 SHOW WARNINGS;
 ```
