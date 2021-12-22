@@ -247,6 +247,12 @@ COMMIT;
 ```
 This ends the transaction and for new transaction you sould do this methed again . Note that some statements are not transactional and may not be rolled back, such as data definition statements CREATE TABLE, CREATE DATABASE, ALTER TABLE, DROP TABLE, and DROP DATABASE, for example. Some of these statements, in fact, implicitly commit the current 
 
+
+--------------------------------------------------
+# run sql file
+```sql
+SOURCE file.sql;
+```
 --------------------------------------------------
 # warnings
 ## see warning
