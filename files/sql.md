@@ -247,13 +247,69 @@ COMMIT;
 ```
 This ends the transaction and for new transaction you sould do this methed again . Note that some statements are not transactional and may not be rolled back, such as data definition statements CREATE TABLE, CREATE DATABASE, ALTER TABLE, DROP TABLE, and DROP DATABASE, for example. Some of these statements, in fact, implicitly commit the current 
 
+--------------------------------------------------
+
+# string functions
+[string functions DOCUMENTATION](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html)
+
+first of all you should know how to use string functions:
+```sql
+SELECT <string_function> FROM table_name;
+```
+ now we move on functions
+
+ ## concat
+ ```sql
+ SELECT CONCAT(string1,string2) FROM table_name;
+```
+there is way to concat with separator
+```sql
+ SELECT CONCAT_WS(separator,string1,string2) FROM table_name;
+```
+## substring
+```sql
+ SELECT SUBSTRING(string,start_index,lenght) FROM table_name;
+```
+there is other way
+```sql
+ SELECT SUBSTRING(string,start_index) FROM table_name;
+```
+we can use minus indexes as well (with minus index count will start from end)
+
+we can use ```substr()``` instead of ```SUBSTRING()```.
+
+##replace
+```sql
+ SELECT REPLACE(string,replace_part,alternative) FROM table_name;
+```
+
+## reverse
+```sql
+ SELECT REVERSE(string) FROM table_name;
+```
+
+## upper and lower case
+```sql
+SELECT UPPER(string) FROM table_name;
+SELECT LOWER(string) FROM table_name;
+```
+
+## string lenght
+```sql
+SELECT CHAR_LENGTH(string) FROM table_name;
+```
+
 
 --------------------------------------------------
+
 # run sql file
 ```sql
 SOURCE file.sql;
 ```
+
+
 --------------------------------------------------
+
 # warnings
 ## see warning
 ```sql
