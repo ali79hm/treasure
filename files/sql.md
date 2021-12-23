@@ -21,12 +21,6 @@ show databases;
 ```sql
 CREATE DATABASE <name>;
 ```
-
-## delete a databases
-```sql
-DROP DATABASE <name>;
-```
-
 ## select a database for working
 ```sql
 USE <databases name>;
@@ -34,6 +28,10 @@ USE <databases name>;
 ## show currently  selected database
 ```sql
 SELECT database();
+```
+## delete a databases
+```sql
+DROP DATABASE <name>;
 ```
 
 --------------------------------------------------
@@ -61,17 +59,17 @@ or we can use
 ```sql
 DESC <table_name>;
 ```
-## deleteing tables
+## Deleteing tables
 ```sql
 DROP TABLE <table_name>;
 ```
-## prevent null columns
+## Prevent null columns
 for example we have students table and every student must have a name so name fields cant be empty , what should we do?
 the answer is NOT NULL.
 we can set a column to NOT NULL to prevent this problems
 ### while creating table:
 ```sql
-CREATe TABLE tablename
+CREATE TABLE tablename
 (
     column_name1 data_type NOT NULL,
     column_name2 data_type
@@ -82,14 +80,14 @@ in above code **column_name1** cant be NULL
 ```sql
 ALTER TABLE table_name MODIFY column_name data_type NOT NULL;
 ```
-## set default value for columns
+## Set default value for columns
 
 ### while creating table:
 
 if user doesnt set a value for a column it will set to NULL
 one way to prevent that is setting a default value 
 ```sql
-CREATe TABLE tablename
+CREATE TABLE tablename
 (
     column_name1 data_type DEFAULT default_value,
     column_name2 data_type
@@ -101,7 +99,7 @@ in above code if user doesnt set **column_name1** it will set to **default_value
 ```sql
 ALTER TABLE table_name ALTER column_name SET DEFAULT default_value;
 ```
-## primary key
+## Primary key
 
 we need unique id to destiguish between datas.
 in sql we can set a column to primary key and it will be unique for every row 
@@ -123,7 +121,7 @@ CREATE TABLE tablename
     PRIMARY KEY (column_name1)
 );
 ```
- ### after creating tabel:
+ ### after creating table:
 ```sql
 ALTER TABLE table_name MODIFY column_name data_type PRIMARY KEY NOT NULL AUTO_INCREMENT;
 ```
@@ -144,22 +142,22 @@ INSERT INTO new_table SELECT * FROM original_table;
 
 --------------------------------------------------
 # work with data in tables
-## insert data
-### insert data into table
+## Insert data
+### Insert data into table
 ```sql
 INSERT INTO table_name =(column_name,column_name)
 VALUES ('data','data');
 ```
-### insert multiple data
+### Insert multiple data
 ```sql
 INSERT INTO table_name =(column_name,column_name)
 VALUES  ('data1','data1'),
         ('data2','data2'),
         ('data3','data3');
 ```
-## read tables
+## Read tables
 
-### read all columns:
+### Read all columns:
 ```sql
 SELECT * FROM table_name
 ```
