@@ -139,8 +139,8 @@ INSERT INTO new_table SELECT * FROM original_table;
 ```
 
 
-
 --------------------------------------------------
+
 # work with data in tables
 ## Insert data
 ### Insert data into table
@@ -299,6 +299,13 @@ SELECT CHAR_LENGTH(string) FROM table_name;
 
 
 --------------------------------------------------
+
+
+# part 8 to 10 is here
+blah blah blah
+
+# part 11 to 13 is here
+again blah blah blah
 
 # run sql file
 ```sql
