@@ -353,9 +353,26 @@ SELECT column_name FROM table_name WHERE column_name LIKE '%string%'
 - ```_``` means exactly one char : ```1_1``` will search for all words has 1 at fisrt then any char again 1 , `171` is accepted but `1781` is not accepted
 
 
+
 # part 9 to 10 is here
 blah blah blah
-
+Aggregate Functions => part9
+data types => part10
+### char vs varchar
+char is fixed lenght
+### int
+### decimal
+```decimal(total_digits,digit_after_decimal)```
+### float and double
+float and double are not fix point
+### date 
+'YYYY-MM-DD'
+### time 
+'HH:MM:SS'
+### datetime
+date + time 
+### time funcs
+![image](Users/ali79/Desktop/Screenshot.png)
 # logical operators
 ## NOT
 get all rows that is not equal to 'string':
