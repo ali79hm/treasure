@@ -367,7 +367,6 @@ it is uposite of ```LIKE```
 ```sql
 SELECT column_name FROM table_name WHERE column_name NOT LIKE '%string%'
 ```
-
 ## Comparison
 
 ```sql
@@ -386,7 +385,6 @@ SELECT column1,column2 FROM table_name WHERE column1 = n AND column2 = n
 -- onother way :
 SELECT column1,column2 FROM table_name WHERE column1 = n && column2 = n 
 ```
-
 ## logical OR
 ```sql
 -- this will select rows that column1 = n OR column2 = n is correct in them
@@ -400,7 +398,6 @@ we can use list for selection
 -- this will select rows that column1 = str1 OR column1 = str2 is correct in them
 SELECT * FROM table_name WHERE column1 IN ('str1','str2')
 ```
-
 ## BETWEEN and NOT BETWEEN
 we can use a number range for selection
 ```sql
@@ -419,11 +416,20 @@ select * ,
 ```
 
 
+# join
+## one to many
+### foreign key
+foreign key is a key that refers to another table`s primary key
+
+you should set foreign key in creating table time like this
+```sql
+FOREIGN KEY (column_name) references table_name (othertable_column_name) 
+-- this will conncect column_name column to other table column (othertable_column_name)
+```
 # run sql file
 ```sql
 SOURCE file.sql;
 ```
-
 
 --------------------------------------------------
 
