@@ -394,6 +394,30 @@ SELECT column1,column2 FROM table_name WHERE column1 = n OR column2 = n
 -- onother way :
 SELECT column1,column2 FROM table_name WHERE column1 = n || column2 = n 
 ```
+## IN and NOT IN
+we can use list for selection
+```sql
+-- this will select rows that column1 = str1 OR column1 = str2 is correct in them
+SELECT * FROM table_name WHERE column1 IN ('str1','str2')
+```
+
+## BETWEEN and NOT BETWEEN
+we can use a number range for selection
+```sql
+-- this will select rows that  n <= column1 <= m
+SELECT * FROM table_name WHERE column1 BETWEEN n AND m
+```
+## case statment
+you  can use conditions in selecting data
+```sql
+select * ,
+        case
+            when condition then "str1"
+            else "str2"
+        END  AS "column title"
+    FROM table_name;
+```
+
 
 # run sql file
 ```sql
