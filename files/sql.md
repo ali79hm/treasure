@@ -299,13 +299,101 @@ SELECT CHAR_LENGTH(string) FROM table_name;
 
 
 --------------------------------------------------
+# better selection
+
+## distinct
+it will give us unique items when we have duplicates
+
+```sql
+SELECT DISTINCT column_name FROM table_name
+```
+you can use distinct on multiple columns at same time 
+
+```sql
+SELECT DISTINCT column_name1,column_name2 FROM table_name
+-- OR
+SELECT DISTINCT CANCAT(column_name1,column_name2) FROM table_name
+```
+
+## order by 
+### order ascending
+```sql 
+SELECT column_name FROM table_name ORDER BY column_name
+-- OR
+SELECT column_name FROM table_name ORDER BY column_name ASC
+
+```
+### order descending
+```sql 
+SELECT column_name FROM table_name ORDER BY column_name DESC
+
+```
+- you can order by nth column you call with select for example :
+```SELECT column_name1,column_name2 FROM table_name ORDER BY 1``` it will ordered by column_name1
+- you can order by 2 diffrent columns : ```SELECT column_name1,column_name2 FROM table_name ORDER BY 1,2```
+
+## limit
+this command will limit results to n 
+ ```sql 
+SELECT column_name FROM table_name LIMIT n;
+```
+you can give range to LIMIT command:
+```sql 
+SELECT column_name FROM table_name LIMIT start_point lenght;
+```
+example: ```SELECT title FROM books LIMIT 0 3;```
+- for selecting to end of table you sould use big number as length
+  
+## like
+you can search with this command
+```sql 
+SELECT column_name FROM table_name WHERE column_name LIKE '%string%'
+```
+- ```%``` means anything for example :```'%s``` will search for all words ends with s
+- ```_``` means exactly one char : ```1_1``` will search for all words has 1 at fisrt then any char again 1 , `171` is accepted but `1781` is not accepted
 
 
-# part 8 to 10 is here
+# part 9 to 10 is here
 blah blah blah
 
-# part 11 to 13 is here
-again blah blah blah
+# logical operators
+## NOT
+get all rows that is not equal to 'string':
+```sql
+SELECT column_name FROM table_name WHERE column_name != 'string'
+```
+## NOT LIKE 
+it is uposite of ```LIKE```
+```sql
+SELECT column_name FROM table_name WHERE column_name NOT LIKE '%string%'
+```
+
+## Comparison
+
+```sql
+SELECT column_name FROM table_name WHERE column_name > n 
+```
+```sql
+    >  -- Greater
+    >= -- Greater equal
+    <  -- Smaller
+    <= -- Smaller and equal
+```
+## logical AND
+```sql
+-- this will select rows that both column1 = n and column2 = n is correct in them
+SELECT column1,column2 FROM table_name WHERE column1 = n AND column2 = n 
+-- onother way :
+SELECT column1,column2 FROM table_name WHERE column1 = n && column2 = n 
+```
+
+## logical OR
+```sql
+-- this will select rows that column1 = n OR column2 = n is correct in them
+SELECT column1,column2 FROM table_name WHERE column1 = n OR column2 = n 
+-- onother way :
+SELECT column1,column2 FROM table_name WHERE column1 = n || column2 = n 
+```
 
 # run sql file
 ```sql
