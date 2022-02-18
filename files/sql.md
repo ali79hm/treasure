@@ -354,14 +354,63 @@ SELECT column_name FROM table_name WHERE column_name LIKE '%string%'
 
 --------------------------------------------------
 # Aggregate Functions
-for counting the rows of a sample or the whole table, use COUNT() function.
+## count
+for counting the rows of a sample or the whole table, use COUNT function.
 ```sql
 SELECT COUNT(*) FROM table_name;
 ```
-# part 9 to 10 is here
-blah blah blah
-Aggregate Functions => part9
-data types => part10
+## sumation
+for sumation of numeric values in a column, use SUM function:
+```sql
+SELECT SUM(column_name) FROM table_name;
+```
+## min, max
+for get minimum or maximum values in a special column, use MIN/MAX function:
+```sql
+SELECT MIN(column_name) FROM table_name;
+SELECT MAX(column_name) FROM table_name;
+```
+## average
+you can use AVG function for calculate average for numeric value in a column:
+```sql
+SELECT AVG(column_name) FROM table_name;
+```
+## group by
+one of the aggregate tools in SQL is GROUP BY. with that you can categorized or grouping based on a special category or mark or something.
+in below we can see a grouping base on column X:
+```sql
+SELECT column_name01, column_name02, ... FROM table_name
+GROUP BY column_nameX;
+```
+- grouping by more than one column is possible. for example you can grouping by first name column and last name column.
+
+- now you can combine previous function with GROUP BY:
+```sql
+# COUNT and GROUP BY
+SELECT column_name01, column_name02, ... , COUNT(*) FROM table_name
+GROUP BY column_nameX;
+
+# MAX/MIN and GROUP BY
+SELECT column_name01, column_name02, ..., Max(column_name03)
+FROM table_name
+GROUP BY column_name04, column_name05 , ...;
+
+#and etc...
+```
+- for get a subset that sorted in MAX or MIN value you can try two way:
+```sql
+SELECT * FROM table_name
+WHERE column_name = (SELECT Min(column_name) FROM tablename);
+```
+or
+```sql
+SELECT * FROM table_name  
+ORDER BY column_name ASC LIMIT 1;
+```
+but in first way, using two selecting is not a good choice(it's not efficient and even slow to process)
+
+--------------------------------------------------
+# Data Type
 ### char vs varchar
 char is fixed lenght
 ### int
