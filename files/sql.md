@@ -299,7 +299,7 @@ SELECT CHAR_LENGTH(string) FROM table_name;
 
 
 --------------------------------------------------
-# better selection
+# refining selection
 
 ## distinct
 it will give us unique items when we have duplicates
