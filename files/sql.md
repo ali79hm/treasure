@@ -352,8 +352,12 @@ SELECT column_name FROM table_name WHERE column_name LIKE '%string%'
 - ```%``` means anything for example :```'%s``` will search for all words ends with s
 - ```_``` means exactly one char : ```1_1``` will search for all words has 1 at fisrt then any char again 1 , `171` is accepted but `1781` is not accepted
 
-
-
+--------------------------------------------------
+# Aggregate Functions
+for counting the rows of a sample or the whole table, use COUNT() function.
+```sql
+SELECT COUNT(*) FROM table_name;
+```
 # part 9 to 10 is here
 blah blah blah
 Aggregate Functions => part9
