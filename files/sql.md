@@ -375,7 +375,7 @@ SELECT AVG(column_name1) FROM table_name
 SELECT SUM(column_name1) FROM table_name
 ```
 
-# data types 
+# date types 
 ## char vs varchar
 char is fixed lenght but varchar is variable
  ```char(3)``` -> only 3 character allowed
