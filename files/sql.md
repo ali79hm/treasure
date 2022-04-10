@@ -10,6 +10,7 @@ so sql is database language but mySQL is DBSM.
 we have several DBSMs that use sql as language, like postgre SQL,mySQL,oracle,SQlite .
 their diffrence is in speed , security , size , user premitions and ...
 
+**its better to type all commands in upper case and type other names in  [Snake case](https://en.wikipedia.org/wiki/Snake_case)**
 # manage Databases
 
 ## show all databases
@@ -41,7 +42,7 @@ DROP DATABASE <name>;
 - before making tables you sould be familier with sql data types if you are not! , [click here](https://www.w3schools.com/sql/sql_datatypes.asp)
 ## create a table
 ```sql
-CREATe TABLE tablename
+CREATE TABLE tablename
 (
     column_name data_type,
     column_name data_type
@@ -179,16 +180,6 @@ here a example from conditions:
 suppose we have two columns: 1.name 2.age
 we want to get name of people who`s age is grather than 18 :```SELECT name FROM people WHERE age>18 ```
 
-#### select list of special rows
-say that you want to select people with age 20 and 18 you can do this :
-```sql
-SELECT column_name1 FROM table_name WHERE age IN (2,4);
-```
-#### select range of special rows
-say that you want to select people with age 20 and 18 you can do this :
-```sql
-SELECT column_name1 FROM table_name WHERE age BETWEEN 2 AND 4;
-```
 
 ### using aliases
 we cant show a column with special title
@@ -257,7 +248,7 @@ SELECT <string_function> FROM table_name;
  now we move on functions
 
  ## concat
- ```sql
+```sql
  SELECT CONCAT(string1,string2) FROM table_name;
 ```
 there is way to concat with separator
@@ -265,6 +256,7 @@ there is way to concat with separator
  SELECT CONCAT_WS(separator,string1,string2) FROM table_name;
 ```
 ## substring
+cut a part of a string 
 ```sql
  SELECT SUBSTRING(string,start_index,lenght) FROM table_name;
 ```
@@ -352,27 +344,97 @@ SELECT column_name FROM table_name WHERE column_name LIKE '%string%'
 - ```%``` means anything for example :```'%s``` will search for all words ends with s
 - ```_``` means exactly one char : ```1_1``` will search for all words has 1 at fisrt then any char again 1 , `171` is accepted but `1781` is not accepted
 
+--------------------------------------------------
+# Aggregate Functions
 
+## group by
+You can group rows by special element and then do some thing on them
+```sql 
+SELECT column_name1,column_name2 FROM table_name GROUP BY column_name1
+```
+## count
+```sql
+SELECT COUNT(column_name1) FROM table_name
+```
+## min & max
+```sql
+SELECT MIN(column_name1) FROM table_name
+SELECT MAX(column_name1) FROM table_name
+```
+### select a row with min item
+```sql
+SELECT * FROM table_name 
+    WHERE column_name1 = (SELECT MIN(column_name1) FROM table_name)
+```
+## average
+```sql
+SELECT AVG(column_name1) FROM table_name
+```
+## sum
+```sql
+SELECT SUM(column_name1) FROM table_name
+```
 
-# part 9 to 10 is here
-blah blah blah
-Aggregate Functions => part9
-data types => part10
-### char vs varchar
-char is fixed lenght
-### int
-### decimal
-```decimal(total_digits,digit_after_decimal)```
-### float and double
-float and double are not fix point
-### date 
-'YYYY-MM-DD'
-### time 
-'HH:MM:SS'
-### datetime
+# data types 
+## char vs varchar
+char is fixed lenght but varchar is variable
+ ```char(3)``` -> only 3 character allowed
+ char is faster for fixed length text 
+ but varchar is usefull when you want to enter diffrent string length (usefull for name)
+value     | char(4) | storage | varchar(4) | storage|
+----------|---------|---------|------------|--------|
+""        | "    "  | 4 byte  |    ""      | 1 byte |
+"ab"      | "ab  "  | 4 byte  |    "ab"    | 2 byte |
+"abcd"    | "abcd"  | 4 byte  |   "abcd    | 5 byte |
+"abcdefg" | "abcd"  | 4 byte  | "abcdefg"  | 5 byte |
+ 
+## int
+ ```INT```
+## decimal
+ ```decimal(total_digits,digit_after_decimal)```
+## float and double
+float and double are not fix point and their calculation in approximate
+ ``` FLOAT``` & ```DOUBLE```
+data type| Memory needed | precision Issues|
+----------|---------|---------|
+FLOAT|4 byte | -7 digits
+DOUBLE|8 byte | -15 digits
+## date 
+format = 'YYYY-MM-DD'
+## time 
+format = 'HH:MM:SS'
+## datetime
 date + time 
-### time funcs
-![image](Users/ali79/Desktop/Screenshot.png)
+format = 'YYYY-MM-DD HH:MM:SS'
+## get time funcs
+```sql
+
+CURDATE()  -- gives curentt date
+CURTIME()  -- gives current time
+NOW()      -- gives current datetime
+```
+## get data from datetime
+we can get some data from datetime
+```sql
+-- birthdate is date time 
+DAY(birthdate)       -- get day of birthdate
+DAYNAME(birthdate)   -- show what day pf week birthdate is 
+DAYOFWEEK(birthdate) -- show what day of week birthdate is
+DAYOFYEAR(birthdate) -- show what day of year birthdate is
+MONTH(birthdate)     -- show month of birthdate
+MONTHNAME(birthdate) -- show name of month of birthdate
+HOUR(birthtime)      -- show HOUR of birthdate
+MINUTE(birthtime)    -- show MINUTE of birthdate
+
+```
+## format date
+we can format a date in any way we want
+[you can see here for more deteils](https://www.w3schools.com/sql/func_mysql_date_format.asp)
+```sql
+-- birthdate is date time 
+DATE_FORMAT(birthdate,'%y %m %d')
+```
+
 # logical operators
 ## NOT
 get all rows that is not equal to 'string':
